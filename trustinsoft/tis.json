@@ -1,0 +1,82 @@
+[
+    {
+        "include": "tis-common.json",
+        "name": "sha256",
+        "files":
+        [
+            "../tests/test_sha256.c"
+        ]
+    },
+    {
+        "include": "tis-common.json",
+        "name": "aes",
+        "files":
+        [
+            "../tests/test_aes.c"
+        ]
+    },
+    {
+        "include": "tis-common.json",
+        "name": "cbc_mode",
+        "files":
+        [
+            "../tests/test_cbc_mode.c"
+        ]
+    },
+    {
+        "include": "tis-common.json",
+        "name": "ccm_mode",
+        "files":
+        [
+            "../tests/test_ccm_mode.c"
+        ]
+    },
+    {
+        "include": "tis-common.json",
+        "name": "cmac_mode",
+        "files":
+        [
+            "../tests/test_cmac_mode.c"
+        ]
+    },
+    {
+        "include": "tis-common.json",
+        "name": "ctr_mode",
+        "files":
+        [
+            "../tests/test_ctr_mode.c"
+        ]
+    },
+    {
+        "include": "tis-common.json",
+        "name": "ctr_prng",
+        "files":
+        [
+            "../tests/test_ctr_prng.c"
+        ]
+    },
+    {
+        "include": "tis-common.json",
+        "name": "ecc_dh",
+        "files":
+        [
+            "../tests/test_ecc_dh.c"
+        ]
+    },
+    {
+        "include": "tis-common.json",
+        "name": "hmac",
+        "files":
+        [
+            "../tests/test_hmac.c"
+        ]
+    },
+    {
+        "include": "tis-common.json",
+        "name": "hmac_prng",
+        "files":
+        [
+            "../tests/test_hmac_prng.c"
+        ]
+    }
+]
