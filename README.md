@@ -34,7 +34,7 @@ The only steps to be taken in Jenkins are:
 ### Jenkins jobs based on Freestyle jobs
 
 In this type of jobs the configuration is not textual. It's configured in Jenkins GUI itself.
-(Jenkins may then store dans in database and/or XML files, but's that internal)
+(Jenkins may then store in database and/or XML files, but's that internal)
 Configuration is rather self explanatory. See Jenkins screenshots below:
 
 ![Jenkins freestyle job part 1](pics/jenkins1.png "Part 1")

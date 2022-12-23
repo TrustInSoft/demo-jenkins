@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Code Checkout') {
       steps {
-        checkout([$class: 'GitSCM', branches: [[name: '**']], extensions: [[$class: 'CloneOption', noTags: false, reference: '', shallow: true]], userRemoteConfigs: [[credentialsId: 'GitHub-PAT-Sept-2022-v1', url: 'https://github.com/okorach/tinycrypt']]])
+        checkout([$class: 'GitSCM', branches: [[name: '**']], extensions: [[$class: 'CloneOption', noTags: false, reference: '', shallow: true]], userRemoteConfigs: [[credentialsId: 'GitHub-PAT-Sept-2022-v1', url: 'https://github.com/TrustInSoft/demo-jenkins']]])
       }
     }
     stage('Run TISA tests') {
@@ -19,7 +19,7 @@ pipeline {
           // In the below cases the number of TISA parallel runs is controlled by a Jenkins
           // environment Variable (TIS_PARALLEL_RUNS) to be set in
           // Jenkins > Manage Jenkins > Configure System and Environment Variables
-          sh "trustinsoft/run_all.sh -n ${env.TIS_PARALLEL_RUNS}"
+          sh "/home/tis/1.44/bin/tis-setenv.sh; . ~/.tis.conf; trustinsoft/run_all.sh -n ${env.TIS_PARALLEL_RUNS}"
         }
       }
     }
@@ -27,7 +27,7 @@ pipeline {
       steps {
         script {
           echo "Produce TISA report"
-          sh "tis-report _results"
+          sh "/home/tis/1.44/bin/tis-setenv.sh; . ~/.tis.conf; tis-report _results"
         }
       }
     }
@@ -36,7 +36,7 @@ pipeline {
         script {
           echo "Run tis-misra"
           // For that particular project, source files are in the "lib" directory
-          sh "tis-misra lib"
+          sh "/home/tis/1.44/bin/tis-setenv.sh; . ~/.tis.conf; tis-misra lib"
         }
       }
     }
