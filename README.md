@@ -99,6 +99,11 @@ Configuration is rather self-explanatory. See Jenkins screenshots below:
       ```
       /home/tis/${TIS_VERSION}/bin/tis-setenv.sh
       source ~/.tis.conf
+      # The -n <i> parameter here pertains to the number of analyses you want to run in parallel
+      # Benefits: The more analyses you run in parallel, the faster your pipeline
+      # Constraints:
+      # - You need at least as many token licenses as the number of analyses to run in parallel
+      # - You need enough CPU power (cores) and RAM to run the number of parallel analyses yuo have chosen
       trustinsoft/run_all.sh -n 1
       ```
    2. Add step **Execute shell** (2)
