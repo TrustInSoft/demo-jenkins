@@ -99,7 +99,7 @@ Configuration is rather self-explanatory. See Jenkins screenshots below:
       ```
       /home/tis/${TIS_VERSION}/bin/tis-setenv.sh
       source ~/.tis.conf
-      # The -n <i> parameter here pertains to the number of analyses you want to run in parallel
+      # The -n <i> parameter below pertains to the number of analyses you want to run in parallel
       # Benefits: The more analyses you run in parallel, the faster your pipeline
       # Constraints:
       # - You need at least as many token licenses as the number of analyses to run in parallel
@@ -116,7 +116,7 @@ Configuration is rather self-explanatory. See Jenkins screenshots below:
       ```
    3. Add step **Execute shell** (3)
       ```
-      # This step is to be run only if you want a MISRA report
+      # This step is to be run only if you want a MISRA compliance report
       # The parameter passed to tis-misra is the root directory of the source code ("lib" in te current sample project)
       /home/tis/${TIS_VERSION}/bin/tis-setenv.sh
       source ~/.tis.conf
