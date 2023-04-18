@@ -83,13 +83,18 @@ Configuration is rather self-explanatory. See Jenkins screenshots below:
 
 1. Choose **Delete workspace before build starts**
 2. Choose **Inject environment variables to the build process**
-   1. Set **Properties Content** to `TIS_VERSION=1.44`
+   1. Set **Properties Content** to `TIS_VERSION=1.44` or whatever version is installed on your Jenkins agent (Can be `1.44.1`, `1.45` or higher in the future).
+      If several versions are installed, then chose the one you want to use for your pipeline (if no specific need, it's very recommended to use the latest)
 
 ![Jenkins freestyle job part 3](pics/demo-jenkins_freeflow_3_Build_Environment.png "Part 3")
 
 #### Build Steps
 
 1. Insert all the **Build Steps** and **Post-Build Actions**
+   Step 1 is obviously mandatory to run the analysis.
+   Step 2 is optional yet very recommended to produce the analysis HTML report
+   Step 3 is optionel, and to run only if you wish to produce a MISRA report
+   
    1. Add step **Execute shell** (1)
       ```
       /home/tis/${TIS_VERSION}/bin/tis-setenv.sh
@@ -98,12 +103,16 @@ Configuration is rather self-explanatory. See Jenkins screenshots below:
       ```
    2. Add step **Execute shell** (2)
       ```
+      # This step is to be run to produce the HTML tis-report
+      # The parameter passed to tis-report is ALWAYS "_report" unless you changed the default configuration of tis-analyzer 
       /home/tis/${TIS_VERSION}/bin/tis-setenv.sh
       source ~/.tis.conf
       tis-report _results
       ```
    3. Add step **Execute shell** (3)
       ```
+      # This step is to be run only if you want a MISRA report
+      # The parameter passed to tis-misra is the root directory of the source code ("lib" in te current sample project)
       /home/tis/${TIS_VERSION}/bin/tis-setenv.sh
       source ~/.tis.conf
       tis-misra lib
