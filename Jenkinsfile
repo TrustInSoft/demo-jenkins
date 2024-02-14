@@ -5,6 +5,7 @@ pipeline {
   // environment {
   //   TIS_VERSION = '1.46.3'
   //   TIS_PARALLEL_RUNS = '4'
+  //   FAIL_IF_ALARMS = 'false'
   // }
   stages {
     stage('Code Checkout') {
@@ -79,6 +80,9 @@ pipeline {
       }
     }
     stage('Optional: Fail build if some UB were found') {
+      when {
+         expression { env.FAIL_IF_ALARMS == "true" }
+      }
       steps {
         script {
           echo "Parse JSON report for Undefined Behaviors"
