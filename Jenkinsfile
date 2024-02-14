@@ -2,7 +2,7 @@ pipeline {
   agent any
   environment {
     TIS_VERSION = '1.46.3'
-    TIS_PARALLEL_RUNS = '1'
+    TIS_PARALLEL_RUNS = '4'
   }
   stages {
     stage('Code Checkout') {
