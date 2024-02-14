@@ -76,7 +76,6 @@ pipeline {
         archiveArtifacts artifacts: 'tis_misra_report/**', onlyIfSuccessful: false
       }
     }
-    /*
     stage('Optional: Fail build if some UB were found') {
       steps {
         script {
@@ -88,6 +87,5 @@ pipeline {
         }
       }
     }
-    */
   }
 }
