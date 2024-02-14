@@ -65,6 +65,9 @@ pipeline {
     }
     stage('Publish artifacts') {
       steps {
+        sh '''#!/bin/bash
+            tree .
+        '''
         // Artifacts of tis-report
         archiveArtifacts artifacts: 'tis_report.html', onlyIfSuccessful: false
         archiveArtifacts artifacts: '_results/**.json', onlyIfSuccessful: false
