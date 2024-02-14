@@ -1,11 +1,11 @@
 pipeline {
   agent any
-  environment {
-    // Env variables defined in Jenkins at > Jenkins > Manage Jenkins > Configure System and Environment Variables
-    // No need to define them locally in the pipeline
-    // TIS_VERSION = '1.46.3'
-    // TIS_PARALLEL_RUNS = '4'
-  }
+  // Env variables defined in Jenkins at > Jenkins > Manage Jenkins > Configure System and Environment Variables
+  // No need to define them locally in the pipeline
+  // environment {
+  //   TIS_VERSION = '1.46.3'
+  //   TIS_PARALLEL_RUNS = '4'
+  // }
   stages {
     stage('Code Checkout') {
       steps {
